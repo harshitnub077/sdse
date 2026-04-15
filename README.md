@@ -128,17 +128,24 @@ Start the Backend server
 
 ## Tech Stack
 
-- [React](https://reactjs.org/)
-- [Node.js](https://nodejs.org/en)
-- [Express.js](https://expressjs.com/)
-- [Mongodb](https://www.mongodb.com/)
-- [Stripe](https://stripe.com/)
-- [JWT-Authentication](https://jwt.io/introduction)
-- [Multer](https://www.npmjs.com/package/multer)
+Frontend:
+React 18
+Vite
+TypeScript
+React Router DOM
+
+Backend:
+Node.js / Express
+TypeScript
+tsx / ts-node-dev
+MongoDB via Mongoose
+JWT auth
+Bcrypt
 
 ## Deployment
 
-The application is deployed on Render.
+Frontend on vercel
+Backend on Render
 
 ## Contributing
 
@@ -149,12 +156,10 @@ Just raise an issue, and we will discuss it.
 
 | Contributor | Role | Contribution |
 | :--- | :--- | :--- |
-| <img src="https://github.com/harshitnub077.png" width="40" height="40"> **[Harshit Kudhial](https://github.com/harshitnub077)** | Project Lead | Frontend Architecture & Routing |
-| <img src="https://github.com/Prakhar13o3.png" width="40" height="40"> **[Prakhar](https://github.com/Prakhar13o3)** | Backend Dev | Auth & Database Schemas |
-| <img src="https://github.com/Omc12.png" width="40" height="40"> **[Om Chimurkar](https://github.com/Omc12)** | Admin Expert | Admin Panel & File Multer |
-| <img src="https://github.com/pankaj-cod.png" width="40" height="40"> **[Pankaj](https://github.com/pankaj-cod)** | Logic Specialist | Global Context & Cart Logic |
-
-If you have any feedback, please reach out to me [here](https://www.linkedin.com/in/muhammad-shan-full-stack-developer/)
+| <img src="https://github.com/harshitnub077.png" width="40" height="40"> **[Harshit Kudhial](https://github.com/harshitnub077)** 
+| <img src="https://github.com/Prakhar13o3.png" width="40" height="40"> **[Prakhar](https://github.com/Prakhar13o3)**
+| <img src="https://github.com/Omc12.png" width="40" height="40"> **[Om Chimurkar](https://github.com/Omc12)** 
+| <img src="https://github.com/pankaj-cod.png" width="40" height="40"> **[Pankaj](https://github.com/pankaj-cod)** 
 
 ## Design Patterns
 

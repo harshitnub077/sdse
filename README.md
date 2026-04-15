@@ -1,3 +1,7 @@
+## TOMATO – Food Ordering Website
+
+This project presents TOMATO, a dynamic food ordering platform designed to provide a seamless online ordering experience. The primary objective of this system is to demonstrate core Object-Oriented Programming (OOP) principles and the implementation of key design patterns within a real-world application.
+
 ## Project Structure
 
 - `/admin` — admin panel source code.
@@ -11,7 +15,6 @@
 ## Demo
 
 - User Panel: [https://food-delivery-frontend-s2l9.onrender.com/](https://food-delivery-frontend-s2l9.onrender.com/)
-- Admin Panel: [https://food-delivery-admin-wrme.onrender.com/](https://food-delivery-admin-wrme.onrender.com/)
 
 ## Features
 

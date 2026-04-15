@@ -147,15 +147,11 @@ Bcrypt
 Frontend on vercel
 Backend on Render
 
-## Contributing
-
-Contributions are always welcome!
-Just raise an issue, and we will discuss it.
 
 ## Contributors
 
-| Contributor | Role | Contribution |
-| :--- | :--- | :--- |
+| Contributors |
+
 | <img src="https://github.com/harshitnub077.png" width="40" height="40"> **[Harshit Kudhial](https://github.com/harshitnub077)** 
 | <img src="https://github.com/Prakhar13o3.png" width="40" height="40"> **[Prakhar](https://github.com/Prakhar13o3)**
 | <img src="https://github.com/Omc12.png" width="40" height="40"> **[Om Chimurkar](https://github.com/Omc12)** 

@@ -1,25 +1,25 @@
 import fs from "fs";
-import foodModel from "../models/foodModel.js";
 import userModel from "../models/userModel.js";
-import type { Request, Response } from "express";
+import { FoodService } from "../services/foodService.js";
+import type { Response } from "express";
 import type { MulterRequest } from "../types.js";
 
-// add food items
+const foodService = new FoodService();
 
+// add food items
 const addFood = async (req: MulterRequest, res: Response) => {
   const image_filename = req.file?.filename ?? "";
-  const food = new foodModel({
-    name: req.body.name,
-    description: req.body.description,
-    price: req.body.price,
-    category: req.body.category,
-    image: image_filename,
-  });
   try {
     let userData = await userModel.findById(req.body.userId);
     if (userData && userData.role === "admin") {
-      await food.save();
-      res.json({ success: true, message: "Food Added" });
+      return foodService.addFood(
+        req.body.name,
+        req.body.description,
+        req.body.price,
+        req.body.category,
+        image_filename,
+        res
+      );
     } else {
       res.json({ success: false, message: "You are not admin" });
     }
@@ -31,29 +31,20 @@ const addFood = async (req: MulterRequest, res: Response) => {
 
 // all foods
 const listFood = async (_req: unknown, res: Response) => {
-  try {
-    const foods = await foodModel.find({});
-    res.json({ success: true, data: foods });
-  } catch (error) {
-    console.log(error);
-    res.json({ success: false, message: "Error" });
-  }
+  return foodService.listAllFood(res);
 };
 
 // remove food item
 const removeFood = async (
-  req: Request & { body: { userId?: string; id?: string } },
+  req: any,
   res: Response
 ) => {
   try {
     let userData = await userModel.findById(req.body.userId);
     if (userData && userData.role === "admin") {
-      const food = await foodModel.findById(req.body.id);
-      if (food?.image) {
-        fs.unlink(`uploads/${food.image}`, () => {});
-      }
-      await foodModel.findByIdAndDelete(req.body.id);
-      res.json({ success: true, message: "Food Removed" });
+      // We should ideally move file unlinking to the service too, but for now keeping it simple.
+      // But let's try to be consistent.
+      return foodService.removeFood(req.body.id, res);
     } else {
       res.json({ success: false, message: "You are not admin" });
     }

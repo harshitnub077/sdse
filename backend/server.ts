@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import "dotenv/config";
-import { connectDB } from "../db/db.js";
+import { connectDB } from "./config/db.js";
 import foodRouter from "./routes/foodRoute.js";
 import userRouter from "./routes/userRoute.js";
 import cartRouter from "./routes/cartRoute.js";
@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cors());
 
 // DB connection
-connectDB();
+connectDB().catch((err) => console.error("DB Connection Error:", err));
 
 // api endpoints
 app.use("/api/food", foodRouter);

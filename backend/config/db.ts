@@ -1,7 +1,10 @@
 import * as mongoose from "mongoose";
 
 export const connectDB = async () => {
-  await (mongoose as any)
-    .connect(process.env.MONGO_URL ?? "")
-    .then(() => console.log("DB Connected"));
+  try {
+    await (mongoose as any).connect(process.env.MONGO_URL ?? "");
+    console.log("DB Connected");
+  } catch (err) {
+    console.error("Database connection error:", err);
+  }
 };

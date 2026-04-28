@@ -19,7 +19,7 @@ const placeOrder = async (
   req: Request<unknown, unknown, PlaceOrderBody>,
   res: Response
 ) => {
-  const frontend_url = "https://food-delivery-frontend-s2l9.onrender.com";
+  const frontend_url = process.env.FRONTEND_URL || "http://localhost:5173";
   try {
     const newOrder = new orderModel({
       userId: req.body.userId,

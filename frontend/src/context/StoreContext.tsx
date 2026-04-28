@@ -1,10 +1,14 @@
 import axios from "axios";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, ReactNode } from "react";
 import { toast } from "react-toastify";
 
 export const StoreContext = createContext(null);
 
-const StoreContextProvider = (props) => {
+interface StoreContextProviderProps {
+  children: ReactNode;
+}
+
+const StoreContextProvider = ({ children }: StoreContextProviderProps) => {
   const [cartItems, setCartItems] = useState({});
   const url = import.meta.env.VITE_API_URL || "http://localhost:4000";
   const [token, setToken] = useState("");
@@ -99,7 +103,7 @@ const StoreContextProvider = (props) => {
   };
   return (
     <StoreContext.Provider value={contextValue}>
-      {props.children}
+      {children}
     </StoreContext.Provider>
   );
 };

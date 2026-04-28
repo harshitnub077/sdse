@@ -1,0 +1,46 @@
+erDiagram
+  USER {
+    ObjectId _id PK
+    string name
+    string email
+    string password
+    string role
+    object cartData "map of foodId to qty"
+    date createdAt
+    date updatedAt
+  }
+
+  FOOD_ITEM {
+    ObjectId _id PK
+    string name
+    string description
+    number price
+    string image "filename in uploads dir"
+    string category
+    date createdAt
+    date updatedAt
+  }
+
+  ORDER {
+    ObjectId _id PK
+    string userId FK
+    array items "IOrderItem array"
+    number amount
+    object address
+    string status "default Food Processing"
+    date date
+    boolean payment "default false"
+    date createdAt
+    date updatedAt
+  }
+
+  ORDER_ITEM {
+    string foodId FK
+    number quantity
+    number price "price at time of order"
+  }
+
+  USER ||--o{ ORDER : "places"
+  ORDER ||--|{ ORDER_ITEM : "contains"
+  FOOD_ITEM ||--o{ ORDER_ITEM : "referenced in"
+  USER }o--o{ FOOD_ITEM : "cartData (embedded)"

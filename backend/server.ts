@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cors());
 
 // DB connection
-connectDB();
+connectDB().catch((err) => console.error("DB Connection Error:", err));
 
 // api endpoints
 app.use("/api/food", foodRouter);
